@@ -97,3 +97,38 @@ def show_low_high_freq():
     print(f"El numero menor es: {min(numbers)}")
     print(f"Numeros que se repiten son: {same}")
 
+def calculator():
+    while True:
+        try:
+            num_one = float(input("Ingrese el primer numero: "))
+            num_two = float(input("Ingrese el segundo numero: "))
+            break
+        except ValueError:
+            print("Debe ingresar numeros validos")
+    print("1. Suma")
+    print("2. Resta")
+    print("3. Multiplicacion")
+    print("4. Division")
+    while True:
+        option = input("Seleccione una operacion (1-4): ")
+        match option:
+            case "1":
+                print(f"{num_one} + {num_two} = {num_one + num_two}")
+                break
+            case "2":
+                print(f"{num_one} - {num_two} = {num_one - num_two}")
+                break
+            case "3":
+                print(f"{num_one} * {num_two} = {num_one * num_two}")
+                break
+            case "4":
+                try:
+                    print(f"{num_one} / {num_two} = {num_one / num_two:.2f}")
+                except ZeroDivisionError:
+                    print("No se puede dividir entre cero")
+                break
+            case _:
+                print("Ingresaste una opción no válida, vuelve a intentarlo.")
+
+
+
