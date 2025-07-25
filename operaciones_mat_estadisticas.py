@@ -68,7 +68,20 @@ def is_prime_number(number):
     for i in range(3, int(number**0.5) + 1, 2):
         if number % i == 0:
             return False
-        return True
+    return True
+def verify_prime():
+    while True:
+        try:
+            num = int(input("Ingrese un número entero: "))
+            break
+        except ValueError:
+            print("Error: Debe ingresar un número entero válido.")
+
+    if is_prime_number(num):
+        print(f"El número {num} ES primo")
+    else:
+        print(f"El número {num} NO es primo")
+
 def grade_analyze():
     grades = enter_numbers("Ingresa cuantas calificaciones quieres analizar: ")
     if not grades:
@@ -130,5 +143,32 @@ def calculator():
             case _:
                 print("Ingresaste una opción no válida, vuelve a intentarlo.")
 
+while True:
+    print(" MENÚ PRINCIPAL DE OPERACIONES MATEMÁTICAS ")
+    print("1. Estadísticas de números")
+    print("2. Área y perímetro de rectángulo")
+    print("3. Verificar si un número es primo")
+    print("4. Análisis de calificaciones")
+    print("5. Mayor, menor y frecuencia de números")
+    print("6. Calculadora básica")
+    print("7. Salir")
+    option = input('Seleccione una opcion (1-7): ')
 
-
+    match option:
+        case "1":
+            show_statistics()
+        case "2":
+            rectangle_operations()
+        case "3":
+            verify_prime()
+        case "4":
+            grade_analyze()
+        case "5":
+            show_low_high_freq()
+        case "6":
+            calculator()
+        case "7":
+            print("Gracias por usar nuestro programa. Hasta pronto :)...")
+            break
+        case _:
+            print("Error. Por favor ingrese un numero en el rango de 1 al 7")
