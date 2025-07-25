@@ -79,3 +79,21 @@ def grade_analyze():
     print(f"El promedio es: {average:.2f}")
     print(f"Las notas buenas son: {good_grades:.2f}")
     print(f"Las notas en riesgo de desaprobar son: {risky:.2f}")
+
+def show_low_high_freq():
+    numbers = enter_numbers("Cuantos numeros enteros deseas ingresar?: ")
+    if not numbers:
+        print("No se ingresaron numeros validos")
+        return
+    numbers = [int(num) for num in numbers if num.is_integer()]
+    if not numbers:
+        print("No se ingresaron numeros enteros validos.")
+        return
+    freq = {}
+    for num in numbers:
+        freq[num] = freq.get(num, 0) + 1
+    same = sum(1 for count in freq.values() if count > 1)
+    print(f"El numero mayor es: {max(numbers)}")
+    print(f"El numero menor es: {min(numbers)}")
+    print(f"Numeros que se repiten son: {same}")
+
