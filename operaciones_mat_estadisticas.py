@@ -69,3 +69,13 @@ def is_prime_number(number):
         if number % i == 0:
             return False
         return True
+def grade_analyze():
+    grades = enter_numbers("Ingresa cuantas calificaciones quieres analizar: ")
+    if not grades:
+        return
+    average = sum(grades) / len(grades)
+    good_grades = sum(1 for grad in grades if grad >= 85)
+    risky = sum(1 for grad in grades if grad < 60)
+    print(f"El promedio es: {average:.2f}")
+    print(f"Las notas buenas son: {good_grades:.2f}")
+    print(f"Las notas en riesgo de desaprobar son: {risky:.2f}")
