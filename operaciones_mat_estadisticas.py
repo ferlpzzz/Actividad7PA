@@ -21,7 +21,7 @@ def enter_numbers(message):
 
 def show_statistics():
     numbers = enter_numbers("Ingrese cuantos números desea: ")
-    if not numbers
+    if not numbers:
         return
     add = sum(numbers)
     average = add / len(numbers)
@@ -58,3 +58,14 @@ def rectangle_operations():
     print(f'El area del rectangulo es: {area:.2f}')
     print(f"El perimetro del rectangulo es: {perimeter:.2f}")
 
+def is_prime_number(number):
+    if number <= 1:
+        return False
+    if number == 2:
+        return True
+    if number % 2 == 0:
+        return False
+    for i in range(3, int(number**0.5) + 1, 2):
+        if number % i == 0:
+            return False
+        return True
